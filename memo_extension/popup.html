@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        width: 380px;
+        padding: 15px;
+        font-family: "Malgun Gothic", sans-serif;
+        background: #f9f9f9;
+        margin: 0;
+      }
+      h3 {
+        margin-top: 0;
+        color: #333;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      textarea {
+        height: 120px;
+        resize: none;
+      }
+
+      .preview-box {
+        background: #e8f4fd;
+        border-left: 4px solid #3498db;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #2980b9;
+        font-weight: bold;
+        min-height: 20px;
+        word-break: break-all;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      button {
+        flex: 1;
+        padding: 10px;
+        cursor: pointer;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      #new-btn {
+        background: #27ae60;
+      }
+      #new-btn:hover {
+        background: #219653;
+      }
+      #save-btn {
+        background: #2c3e50;
+      }
+      #save-btn:hover {
+        background: #1a252f;
+      }
+
+      .memo-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: 150px;
+        overflow-y: auto;
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+      }
+
+      /* 메모 아이템과 삭제 버튼 디자인 */
+      .memo-item {
+        position: relative;
+        padding: 8px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        background: white;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        padding-right: 35px;
+      }
+      .memo-item:hover {
+        background: #f1f1f1;
+      }
+      .memo-info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      .memo-date {
+        font-size: 11px;
+        color: #888;
+        margin-top: 3px;
+      }
+
+      .delete-btn {
+        position: absolute;
+        right: 5px;
+        background: transparent;
+        color: #e74c3c;
+        border: none;
+        cursor: pointer;
+        font-size: 12px;
+        padding: 5px;
+        width: auto;
+      }
+      .delete-btn:hover {
+        background: #fceceb;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>🇰🇷 스마트 한글 메모장</h3>
+
+    <input type="text" id="title" placeholder="메모 제목" />
+    <textarea
+      id="memo"
+      placeholder="영어 자판으로 치면 한글로 자동 변환됩니다..."
+    ></textarea>
+
+    <div class="preview-box">💡 예상 변환: <span id="preview-text"></span></div>
+
+    <div class="btn-group">
+      <button id="new-btn">✨ 새 메모</button>
+      <button id="save-btn">💾 저장하기</button>
+    </div>
+
+    <h4 style="margin: 0 0 10px 0; font-size: 14px; color: #555">
+      저장된 메모 목록
+    </h4>
+    <ul id="memo-list" class="memo-list"></ul>
+
+    <script src="hangul.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
